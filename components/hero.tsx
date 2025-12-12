@@ -6,10 +6,10 @@ import { socials } from '@/lib/data'
 import { useEffect, useState } from 'react'
 
 const titles = [
-  'CSE undergrad building secure AI systems',
-  'ML engineer shipping production models',
-  'Full-stack developer with 15+ repos',
-  'Freelancer with 5+ Fiverr gigs',
+  'Full-Stack Developer building modern web apps',
+  'Blockchain Developer exploring Web3',
+  'CS Student at Woxsen University',
+  'Smart India Hackathon Participant',
 ]
 
 export function Hero() {
@@ -32,7 +32,7 @@ export function Hero() {
         >
           <h1 className="text-5xl md:text-7xl font-bold mb-6">
             Hi, I'm{' '}
-            <span className="gradient-text">Your Name</span>
+            <span className="gradient-text">Prashlesh</span>
           </h1>
         </motion.div>
 
@@ -53,8 +53,8 @@ export function Hero() {
           transition={{ duration: 0.5, delay: 0.2 }}
           className="text-lg text-muted-foreground mb-12 max-w-2xl mx-auto"
         >
-          2nd-year CSE student from India specializing in LLM security, ML model deployment, 
-          and full-stack development. Daily DSA grind + shipping real products.
+          Computer Science student at Woxsen University passionate about Full-Stack Development,
+          Blockchain, and building products that matter. Currently working on AURA & HerbX.
         </motion.p>
 
         <motion.div
@@ -103,11 +103,11 @@ export function Hero() {
             <Linkedin className="h-6 w-6" />
           </a>
           <a
-            href={socials.fiverr}
+            href={socials.portfolio}
             target="_blank"
             rel="noopener noreferrer"
             className="text-muted-foreground hover:text-cyan-500 transition-colors"
-            aria-label="Fiverr"
+            aria-label="Portfolio"
           >
             <ExternalLink className="h-6 w-6" />
           </a>

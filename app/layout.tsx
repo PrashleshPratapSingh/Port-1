@@ -8,20 +8,20 @@ import { Footer } from '@/components/footer'
 const inter = Inter({ subsets: ['latin'], variable: '--font-inter' })
 
 export const metadata: Metadata = {
-  title: 'CSE Undergrad Portfolio | AI/ML Developer',
-  description: 'Portfolio of a 2nd-year CSE student specializing in AI/ML security, LLM development, and full-stack web applications. Building secure AI systems daily.',
-  keywords: ['CSE', 'AI', 'ML', 'LLM Security', 'Next.js', 'Python', 'Portfolio', 'Internship'],
-  authors: [{ name: 'Your Name' }],
+  title: 'Prashlesh Pratap Singh | Full-Stack & Blockchain Developer',
+  description: 'Portfolio of a CSE student at Woxsen University specializing in Full-Stack Development, Blockchain, and modern web applications. Building AURA, HerbX, and more.',
+  keywords: ['CSE', 'Full-Stack', 'Blockchain', 'Next.js', 'React', 'Solidity', 'Portfolio', 'Woxsen'],
+  authors: [{ name: 'Prashlesh Pratap Singh' }],
   openGraph: {
-    title: 'CSE Undergrad Portfolio | AI/ML Developer',
-    description: 'Building secure AI systems and full-stack applications. 15+ GitHub repos, 5+ Fiverr gigs, 200+ DSA problems solved.',
+    title: 'Prashlesh Pratap Singh | Full-Stack & Blockchain Developer',
+    description: 'Building modern web apps and blockchain solutions. 17+ GitHub repos, Smart India Hackathon participant, UX Design certified.',
     type: 'website',
     locale: 'en_IN',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'CSE Undergrad Portfolio | AI/ML Developer',
-    description: 'Building secure AI systems and full-stack applications.',
+    title: 'Prashlesh Pratap Singh | Full-Stack & Blockchain Developer',
+    description: 'Building modern web apps and blockchain solutions.',
   },
 }
 

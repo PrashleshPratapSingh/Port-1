@@ -39,8 +39,8 @@ export default function ContactPage() {
       >
         <h1 className="text-5xl font-bold mb-4 gradient-text">Get in Touch</h1>
         <p className="text-xl text-muted-foreground">
-          Looking for internships, freelance work, or collaboration opportunities. 
-          Let's build something amazing together!
+          Looking to collaborate, discuss projects, or just chat about tech?
+          Let's connect and build something amazing together!
         </p>
       </motion.div>
 
@@ -54,7 +54,7 @@ export default function ContactPage() {
             className="glass-card p-6 rounded-xl"
           >
             <h2 className="text-xl font-bold mb-6">Contact Information</h2>
-            
+
             <div className="space-y-4">
               <div className="flex items-start">
                 <Mail className="h-5 w-5 text-cyan-500 mr-3 mt-1" />
@@ -94,7 +94,7 @@ export default function ContactPage() {
             className="glass-card p-6 rounded-xl"
           >
             <h2 className="text-xl font-bold mb-6">Social Links</h2>
-            
+
             <div className="space-y-3">
               <a
                 href={socials.github}
@@ -117,13 +117,13 @@ export default function ContactPage() {
               </a>
 
               <a
-                href={socials.fiverr}
+                href={socials.portfolio}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center p-3 rounded-lg hover:bg-accent transition-colors"
               >
                 <ExternalLink className="h-5 w-5 mr-3 text-cyan-500" />
-                <span className="font-medium">Fiverr</span>
+                <span className="font-medium">Portfolio</span>
               </a>
 
               <a

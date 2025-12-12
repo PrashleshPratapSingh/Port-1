@@ -16,7 +16,7 @@ export default function AboutPage() {
       >
         <h1 className="text-5xl font-bold mb-4 gradient-text">About Me</h1>
         <p className="text-xl text-muted-foreground mb-8">
-          2nd-year CSE student passionate about AI security, machine learning, and building products that matter.
+          Computer Science student passionate about Full-Stack Development, Blockchain, and creating impactful digital experiences.
         </p>
         <a
           href="/resume.pdf"
@@ -86,28 +86,24 @@ export default function AboutPage() {
         </div>
         <div className="space-y-4 text-muted-foreground leading-relaxed">
           <p>
-            I'm a 2nd-year Computer Science Engineering student from India with a passion for 
-            building secure AI systems and full-stack applications. My journey in tech started 
-            with competitive programming and quickly evolved into exploring machine learning 
-            and LLM security.
+            I'm Prashlesh Pratap Singh, a Computer Science Engineering student at Woxsen University,
+            Hyderabad. My journey in tech started with web development and has evolved into
+            exploring blockchain technology and building full-stack applications that solve real problems.
           </p>
           <p>
-            Currently, I maintain a daily practice routine solving DSA problems on LeetCode 
-            (200+ problems solved), contributing to open-source projects on GitHub (15+ repositories), 
-            and freelancing on Fiverr (5+ successful gigs). My work focuses on the intersection 
-            of AI security and practical deployment.
+            Currently, I'm working on AURA - a modern e-commerce clothing store with 3D product
+            visualization, and HerbX - a blockchain-based supply chain system using Ethereum smart
+            contracts. I'm passionate about creating seamless user experiences backed by robust technology.
           </p>
           <p>
-            I've built production-ready systems including an LLM security proxy with 95% jailbreak 
-            detection, a prompt injection detector trained on 10,000+ malicious prompts, and 
-            full-stack applications handling real users and payments. Each project ships with 
-            comprehensive documentation and real metrics.
+            I participated in Smart India Hackathon 2025 where I built an AI-powered personalized
+            study application. I'm also certified in Foundations of User Experience (UX Design),
+            which helps me create user-centric products.
           </p>
           <p>
-            I'm seeking internship opportunities at AI/ML startups, research labs, or product 
-            companies where I can contribute to cutting-edge projects while learning from 
-            experienced teams. Particularly interested in roles involving LLM safety, ML 
-            infrastructure, or full-stack ML applications.
+            I'm always eager to learn new technologies and collaborate on exciting projects.
+            Whether it's building modern web applications, exploring Web3, or designing intuitive
+            interfaces - I'm ready to take on new challenges!
           </p>
         </div>
       </motion.div>

@@ -24,7 +24,7 @@ export function GitHubWidget() {
               <div className="w-32 h-32 rounded-full bg-gradient-to-br from-indigo-500 via-purple-500 to-cyan-500 flex items-center justify-center mb-4">
                 <Github className="h-16 w-16 text-white" />
               </div>
-              <h3 className="text-xl font-bold mb-2">@yourusername</h3>
+              <h3 className="text-xl font-bold mb-2">@vengeanceprashlesh</h3>
               <a
                 href={socials.github}
                 target="_blank"
@@ -38,7 +38,7 @@ export function GitHubWidget() {
             {/* Stats Grid */}
             <div className="flex-1 grid grid-cols-2 md:grid-cols-3 gap-4 w-full">
               <div className="text-center p-4 bg-accent/50 rounded-lg">
-                <p className="text-3xl font-bold gradient-text">15+</p>
+                <p className="text-3xl font-bold gradient-text">17+</p>
                 <p className="text-sm text-muted-foreground">Repositories</p>
               </div>
               <div className="text-center p-4 bg-accent/50 rounded-lg">
@@ -57,10 +57,10 @@ export function GitHubWidget() {
               </div>
               <div className="text-center p-4 bg-accent/50 rounded-lg col-span-2 md:col-span-3">
                 <p className="text-2xl font-bold gradient-text mb-1">
-                  100+ Day Streak 🔥
+                  Active Contributor 🔥
                 </p>
                 <p className="text-sm text-muted-foreground">
-                  Consistent contributions • Daily DSA practice
+                  Building AURA, HerbX & more • Passionate about Web3
                 </p>
               </div>
             </div>
@@ -80,12 +80,12 @@ export function GitHubWidget() {
                       <div
                         key={day}
                         className={`w-3 h-3 rounded-sm ${intensity === 3
-                            ? 'bg-cyan-500'
-                            : intensity === 2
-                              ? 'bg-cyan-500/60'
-                              : intensity === 1
-                                ? 'bg-cyan-500/30'
-                                : 'bg-accent'
+                          ? 'bg-cyan-500'
+                          : intensity === 2
+                            ? 'bg-cyan-500/60'
+                            : intensity === 1
+                              ? 'bg-cyan-500/30'
+                              : 'bg-accent'
                           }`}
                         title={`${intensity * 3} contributions`}
                       />
