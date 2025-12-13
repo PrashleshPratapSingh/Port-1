@@ -4,7 +4,6 @@ import { motion } from 'framer-motion'
 import { ArrowDown, Github, Linkedin, ExternalLink } from 'lucide-react'
 import { socials } from '@/lib/data'
 import { useEffect, useState } from 'react'
-import LightPillar from './LightPillar'
 
 const titles = [
   'Full-Stack Developer building modern web apps',
@@ -24,25 +23,8 @@ export function Hero() {
   }, [])
 
   return (
-    <section className="relative container mx-auto px-4 sm:px-6 lg:px-8 pt-20 pb-16 overflow-hidden">
-      {/* LightPillar Background - contained to hero section only */}
-      <div className="absolute inset-0 w-full h-full pointer-events-none">
-        <LightPillar
-          topColor="#5227FF"
-          bottomColor="#FF9FFC"
-          intensity={0.4}
-          rotationSpeed={0.15}
-          glowAmount={0.002}
-          pillarWidth={6.0}
-          pillarHeight={0.2}
-          noiseIntensity={0.2}
-          pillarRotation={0}
-          interactive={false}
-          mixBlendMode="screen"
-        />
-      </div>
-
-      <div className="relative z-10 max-w-4xl mx-auto text-center">
+    <section className="container mx-auto px-4 sm:px-6 lg:px-8 pt-20 pb-16">
+      <div className="max-w-4xl mx-auto text-center">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}

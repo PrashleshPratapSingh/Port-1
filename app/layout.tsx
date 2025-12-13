@@ -2,8 +2,9 @@ import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import './globals.css'
 import { ThemeProvider } from '@/components/theme-provider'
-import { Navigation } from '@/components/navigation'
+import { StaggeredMenu } from '@/components/StaggeredMenu'
 import { Footer } from '@/components/footer'
+import { socials } from '@/lib/data'
 
 const inter = Inter({ subsets: ['latin'], variable: '--font-inter' })
 
@@ -25,6 +26,19 @@ export const metadata: Metadata = {
   },
 }
 
+const menuItems = [
+  { label: 'Home', ariaLabel: 'Go to home page', link: '/' },
+  { label: 'Projects', ariaLabel: 'View my projects', link: '/projects' },
+  { label: 'About', ariaLabel: 'Learn about me', link: '/about' },
+  { label: 'Contact', ariaLabel: 'Get in touch', link: '/contact' }
+];
+
+const socialItems = [
+  { label: 'GitHub', link: socials.github },
+  { label: 'LinkedIn', link: socials.linkedin },
+  { label: 'LeetCode', link: socials.leetcode }
+];
+
 export default function RootLayout({
   children,
 }: {
@@ -40,7 +54,20 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           <div className="min-h-screen flex flex-col">
-            <Navigation />
+            <StaggeredMenu
+              position="right"
+              items={menuItems}
+              socialItems={socialItems}
+              displaySocials={true}
+              displayItemNumbering={true}
+              menuButtonColor="#e9e9ef"
+              openMenuButtonColor="#000"
+              changeMenuColorOnOpen={true}
+              colors={['#B19EEF', '#5227FF']}
+              accentColor="#5227FF"
+              isFixed={true}
+              closeOnClickAway={true}
+            />
             <main className="flex-1">{children}</main>
             <Footer />
           </div>
@@ -49,3 +76,6 @@ export default function RootLayout({
     </html>
   )
 }
+
+
+
