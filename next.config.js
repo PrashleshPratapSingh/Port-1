@@ -6,6 +6,21 @@ const nextConfig = {
   experimental: {
     optimizeCss: true,
   },
+  webpack: (config, { isServer }) => {
+    // Handle Three.js
+    config.externals = config.externals || [];
+    if (!isServer) {
+      config.resolve.fallback = {
+        ...config.resolve.fallback,
+        fs: false,
+        path: false,
+      };
+    }
+
+    return config;
+  },
+  transpilePackages: ['three'],
 }
 
 module.exports = nextConfig
+
