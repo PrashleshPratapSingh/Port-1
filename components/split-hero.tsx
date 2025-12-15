@@ -1,6 +1,6 @@
 'use client'
 
-import { useEffect, useRef } from 'react'
+import Link from 'next/link'
 import { ArrowDown } from 'lucide-react'
 
 interface SplitHeroProps {
@@ -8,22 +8,15 @@ interface SplitHeroProps {
 }
 
 export function SplitHero({ onNavigate }: SplitHeroProps) {
-    const scrollToSection = (id: string) => {
-        const element = document.getElementById(id)
-        if (element) {
-            element.scrollIntoView({ behavior: 'smooth' })
-        }
-    }
-
     return (
         <header className="min-h-screen flex flex-col md:flex-row w-full relative" id="home">
             {/* Left Panel (Dark) */}
             <div className="md:w-1/2 md:h-screen overflow-hidden group bg-neutral-950 w-full h-[50vh] relative">
                 {/* Background Image */}
                 <img
-                    src="https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?q=80&w=2550&auto=format&fit=crop"
+                    src="/updated.png"
                     alt="Portrait"
-                    className="transition-transform duration-1000 group-hover:scale-105 opacity-60 w-full h-full object-cover absolute top-0 right-0 bottom-0 left-0 grayscale"
+                    className="transition-transform duration-1000 group-hover:scale-105 opacity-70 w-full h-full object-cover object-top absolute inset-0 grayscale"
                 />
 
                 <div className="flex flex-col md:p-10 z-10 h-full pt-6 pr-6 pb-6 pl-6 relative justify-between">
@@ -34,36 +27,31 @@ export function SplitHero({ onNavigate }: SplitHeroProps) {
 
                     {/* Hero Navigation (Bottom Right of Left Panel) */}
                     <nav className="flex flex-col gap-2 reveal-text delay-200 md:pb-8 text-right pb-4 items-end">
-                        <button
-                            onClick={() => scrollToSection('home')}
-                            className="hover:text-white md:text-xl transition-colors cursor-pointer text-lg font-medium text-white/60 tracking-tight"
+                        <Link
+                            href="/"
+                            className="hover:text-white hover:scale-110 hover:-translate-x-2 md:text-xl transition-all duration-300 cursor-pointer text-lg font-medium text-white/60 tracking-tight"
                         >
                             Home
-                        </button>
-                        <button
-                            onClick={() => scrollToSection('me')}
-                            className="hover:text-white md:text-xl transition-colors cursor-pointer text-lg font-medium text-white/60 tracking-tight"
+                        </Link>
+                        <Link
+                            href="/me"
+                            className="hover:text-white hover:scale-110 hover:-translate-x-2 md:text-xl transition-all duration-300 cursor-pointer text-lg font-medium text-white/60 tracking-tight"
                         >
                             Me
-                        </button>
-                        <button
-                            onClick={() => scrollToSection('portfolio')}
-                            className="text-white/60 hover:text-white text-lg md:text-xl font-medium tracking-tight transition-colors cursor-pointer"
+                        </Link>
+                        <Link
+                            href="/portfolio"
+                            className="text-white/60 hover:text-white hover:scale-110 hover:-translate-x-2 text-lg md:text-xl font-medium tracking-tight transition-all duration-300 cursor-pointer"
                         >
                             Portfolio
-                        </button>
-                        <button
-                            onClick={() => scrollToSection('services')}
-                            className="hover:text-white md:text-xl transition-colors cursor-pointer text-lg font-medium text-white/60 tracking-tight"
-                        >
-                            Services
-                        </button>
-                        <button
-                            onClick={() => scrollToSection('contact')}
-                            className="hover:text-white md:text-xl transition-colors cursor-pointer text-lg font-medium text-white/60 tracking-tight"
+                        </Link>
+
+                        <Link
+                            href="/contact"
+                            className="hover:text-white hover:scale-110 hover:-translate-x-2 md:text-xl transition-all duration-300 cursor-pointer text-lg font-medium text-white/60 tracking-tight"
                         >
                             Get in touch
-                        </button>
+                        </Link>
                     </nav>
                 </div>
             </div>

@@ -1,6 +1,6 @@
 'use client'
 
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useRef, useLayoutEffect, useState } from 'react'
 import { ArrowUpRight } from 'lucide-react'
 
 const projects = [
@@ -34,68 +34,72 @@ export function PortfolioCarousel() {
     const sectionRef = useRef<HTMLElement>(null)
     const trackRef = useRef<HTMLDivElement>(null)
     const progressRef = useRef<HTMLDivElement>(null)
-    const [currentScroll, setCurrentScroll] = useState(0)
-    const [currentProgress, setCurrentProgress] = useState(0)
+    const [sectionHeight, setSectionHeight] = useState('100vh')
+
+    // Calculate exact height needed for horizontal scroll
+    useLayoutEffect(() => {
+        const calculateHeight = () => {
+            if (!trackRef.current) return
+            const trackWidth = trackRef.current.scrollWidth
+            const windowWidth = window.innerWidth
+            const windowHeight = window.innerHeight
+            // Exact height: viewport + horizontal scroll distance (1:1 ratio)
+            const scrollDistance = trackWidth - windowWidth
+            setSectionHeight(`${windowHeight + scrollDistance}px`)
+        }
+
+        calculateHeight()
+        window.addEventListener('resize', calculateHeight)
+        return () => window.removeEventListener('resize', calculateHeight)
+    }, [])
 
     useEffect(() => {
-        let targetScroll = 0
-        let targetProgress = 0
+        const section = sectionRef.current
+        const track = trackRef.current
+        const progress = progressRef.current
+        if (!section || !track) return
+
         let animationScroll = 0
         let animationProgress = 0
-        const ease = 0.08
+        let targetScroll = 0
+        let targetProgress = 0
 
         const animate = () => {
-            animationScroll += (targetScroll - animationScroll) * ease
-            animationProgress += (targetProgress - animationProgress) * ease
-
-            if (trackRef.current) {
-                trackRef.current.style.transform = `translateX(${animationScroll}px)`
-            }
-            if (progressRef.current) {
-                progressRef.current.style.width = `${animationProgress * 100}%`
-            }
-
+            animationScroll += (targetScroll - animationScroll) * 0.1
+            animationProgress += (targetProgress - animationProgress) * 0.1
+            track.style.transform = `translateX(${animationScroll}px)`
+            if (progress) progress.style.width = `${animationProgress * 100}%`
             requestAnimationFrame(animate)
         }
 
         const handleScroll = () => {
-            if (!sectionRef.current || !trackRef.current) return
+            const rect = section.getBoundingClientRect()
+            const scrollDistance = track.scrollWidth - window.innerWidth
+            const scrollableHeight = section.offsetHeight - window.innerHeight
+            const scrolled = -rect.top
 
-            const workRect = sectionRef.current.getBoundingClientRect()
-            const trackWidth = trackRef.current.scrollWidth
-            const windowWidth = window.innerWidth
-            const windowHeight = window.innerHeight
-
-            const scrollableHeight = sectionRef.current.offsetHeight - windowHeight
-            const workScrolled = -workRect.top
-
-            if (workRect.top <= 0 && workRect.bottom >= 0) {
-                const percentage = Math.min(Math.max(workScrolled / scrollableHeight, 0), 1)
-                targetScroll = -(trackWidth - windowWidth) * percentage
-                targetProgress = percentage
-            } else if (workRect.top > 0) {
+            if (rect.top <= 0 && rect.bottom >= window.innerHeight) {
+                const pct = Math.min(Math.max(scrolled / scrollableHeight, 0), 1)
+                targetScroll = -scrollDistance * pct
+                targetProgress = pct
+            } else if (rect.top > 0) {
                 targetScroll = 0
                 targetProgress = 0
-            } else if (workRect.bottom < 0) {
-                targetScroll = -(trackWidth - windowWidth)
+            } else {
+                targetScroll = -scrollDistance
                 targetProgress = 1
             }
         }
 
-        window.addEventListener('scroll', handleScroll)
-        window.addEventListener('resize', handleScroll)
-
+        window.addEventListener('scroll', handleScroll, { passive: true })
         handleScroll()
         animate()
 
-        return () => {
-            window.removeEventListener('scroll', handleScroll)
-            window.removeEventListener('resize', handleScroll)
-        }
+        return () => window.removeEventListener('scroll', handleScroll)
     }, [])
 
     return (
-        <section ref={sectionRef} className="bg-[#fcfbf9] h-[calc(100vh+100vw)] relative" id="portfolio">
+        <section ref={sectionRef} className="bg-[#fcfbf9] relative" id="portfolio" style={{ height: sectionHeight }}>
             <div className="sticky overflow-hidden flex flex-col bg-[#fcfbf9] w-full h-screen top-0 justify-center">
                 <div className="absolute top-0 left-0 w-full px-6 md:px-12 pt-8 md:pt-12 flex justify-between items-center z-10 pointer-events-none">
                     <h2 className="text-sm font-semibold tracking-widest uppercase text-neutral-900">
@@ -109,13 +113,11 @@ export function PortfolioCarousel() {
                 <div
                     ref={trackRef}
                     className="flex items-center gap-6 md:gap-12 pl-6 md:pl-12 w-max will-change-transform"
-                    style={{ transform: 'translateX(0px)' }}
                 >
                     {projects.map((project, index) => (
                         <article
                             key={project.id}
-                            className={`group relative w-[85vw] md:w-[40vw] shrink-0 cursor-pointer ${index === projects.length - 1 ? 'pr-12 md:pr-24' : ''
-                                }`}
+                            className={`group relative w-[85vw] md:w-[40vw] shrink-0 cursor-pointer ${index === projects.length - 1 ? 'pr-6 md:pr-12' : ''}`}
                         >
                             <div className="w-full aspect-[4/3] overflow-hidden rounded-md bg-neutral-200 relative">
                                 <img
@@ -123,7 +125,7 @@ export function PortfolioCarousel() {
                                     alt={project.title}
                                     className="w-full h-full object-cover grayscale transition-all duration-700 group-hover:grayscale-0 group-hover:scale-105"
                                 />
-                                <div className="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors"></div>
+                                <div className="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors" />
                             </div>
                             <div className="mt-6 flex justify-between items-start">
                                 <div>
@@ -141,7 +143,7 @@ export function PortfolioCarousel() {
                 </div>
 
                 <div className="absolute bottom-8 left-6 md:left-12 w-48 h-px bg-neutral-200 overflow-hidden">
-                    <div ref={progressRef} className="h-full bg-neutral-900 w-0"></div>
+                    <div ref={progressRef} className="h-full bg-neutral-900 w-0" />
                 </div>
             </div>
         </section>

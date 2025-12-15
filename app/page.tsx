@@ -1,7 +1,6 @@
 import { SplitHero } from '@/components/split-hero'
 import { ProfileSection } from '@/components/profile-section'
 import { PortfolioCarousel } from '@/components/portfolio-carousel'
-import { ServicesSection } from '@/components/services-section'
 import { ContactFooter } from '@/components/contact-footer'
 
 export default function Home() {
@@ -15,9 +14,6 @@ export default function Home() {
 
       {/* Portfolio Section (Horizontal Scroll) */}
       <PortfolioCarousel />
-
-      {/* Services Section */}
-      <ServicesSection />
 
       {/* Footer / Get in Touch */}
       <ContactFooter />
