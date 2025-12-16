@@ -16,7 +16,7 @@ export function SplitHero({ onNavigate }: SplitHeroProps) {
                 <img
                     src="/updated.png"
                     alt="Portrait"
-                    className="transition-transform duration-1000 group-hover:scale-105 opacity-70 w-full h-full object-cover object-top absolute inset-0 grayscale"
+                    className="transition-transform duration-1000 group-hover:scale-100 opacity-70 w-full h-full object-contain object-center absolute inset-0 grayscale scale-90"
                 />
 
                 <div className="flex flex-col md:p-10 z-10 h-full pt-6 pr-6 pb-6 pl-6 relative justify-between">
@@ -34,7 +34,7 @@ export function SplitHero({ onNavigate }: SplitHeroProps) {
                             Home
                         </Link>
                         <Link
-                            href="/me"
+                            href="/#me"
                             className="hover:text-white hover:scale-110 hover:-translate-x-2 md:text-xl transition-all duration-300 cursor-pointer text-lg font-medium text-white/60 tracking-tight"
                         >
                             Me
