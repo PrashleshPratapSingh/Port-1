@@ -45,8 +45,8 @@ export function PortfolioCarousel() {
             const windowHeight = window.innerHeight
             // Exact height: viewport + horizontal scroll distance, minus extra padding
             const scrollDistance = trackWidth - windowWidth
-            // Subtract some height to reduce gap at the end
-            setSectionHeight(`${windowHeight + scrollDistance - 100}px`)
+            // Subtract height to reduce gap at the end
+            setSectionHeight(`${windowHeight + scrollDistance - 300}px`)
         }
 
         calculateHeight()
