@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Helvetica+Neue:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@400;500;600;700;800&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -17,6 +17,10 @@
     --muted-foreground: 0 0% 45%;
     --border: 0 0% 90%;
     --radius: 0.5rem;
+
+    /* Font families */
+    --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    --font-display: 'Outfit', 'Inter', sans-serif;
   }
 }
 
@@ -33,10 +37,19 @@
   }
 
   body {
-    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-    font-feature-settings: "ss01", "ss02";
+    font-family: var(--font-sans);
+    font-feature-settings: "ss01", "ss02", "cv01", "cv11";
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    letter-spacing: -0.01em;
+  }
+
+  /* Display headings use Outfit */
+  h1,
+  h2,
+  h3 {
+    font-family: var(--font-display);
+    letter-spacing: -0.03em;
   }
 }
 
@@ -46,7 +59,7 @@
 .reveal-text {
   animation: reveal 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
   opacity: 0;
-  transform: translateY(20px);
+  transform: translateY(30px);
 }
 
 @keyframes reveal {
@@ -68,6 +81,67 @@
   animation-delay: 0.3s;
 }
 
+.delay-400 {
+  animation-delay: 0.4s;
+}
+
+.delay-500 {
+  animation-delay: 0.5s;
+}
+
+/* ============================================
+   SCROLL ANIMATIONS (GSAP Enhanced)
+   ============================================ */
+.fade-up {
+  opacity: 0;
+  transform: translateY(60px);
+}
+
+.fade-up.animate {
+  animation: fadeUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes fadeUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Stagger children */
+.stagger-children>* {
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+.stagger-children.animate>* {
+  animation: fadeUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.stagger-children.animate>*:nth-child(1) {
+  animation-delay: 0s;
+}
+
+.stagger-children.animate>*:nth-child(2) {
+  animation-delay: 0.1s;
+}
+
+.stagger-children.animate>*:nth-child(3) {
+  animation-delay: 0.2s;
+}
+
+.stagger-children.animate>*:nth-child(4) {
+  animation-delay: 0.3s;
+}
+
+.stagger-children.animate>*:nth-child(5) {
+  animation-delay: 0.4s;
+}
+
+.stagger-children.animate>*:nth-child(6) {
+  animation-delay: 0.5s;
+}
+
 /* ============================================
    MINIMAL SCROLLBAR
    ============================================ */
@@ -86,10 +160,46 @@
 }
 
 /* ============================================
-   STUDIO CARD SHADOW
+   CARD SHADOWS & EFFECTS
    ============================================ */
-.studio-card {
-  box-shadow: 0 -50px 100px -20px rgba(0, 0, 0, 0.2);
+.card-hover {
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.card-hover:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.15);
+}
+
+.card-glow {
+  position: relative;
+}
+
+.card-glow::before {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), transparent);
+  opacity: 0;
+  transition: opacity 0.3s;
+  pointer-events: none;
+}
+
+.card-glow:hover::before {
+  opacity: 1;
+}
+
+/* GitHub card special glow */
+.github-glow {
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.github-glow:hover {
+  transform: translateY(-6px) scale(1.02);
+  box-shadow:
+    0 25px 50px -12px rgba(0, 0, 0, 0.4),
+    0 0 0 1px rgba(255, 255, 255, 0.1);
 }
 
 /* ============================================
@@ -115,8 +225,10 @@ html.lenis {
    GIANT TEXT UTILITY
    ============================================ */
 .giant-text {
+  font-family: var(--font-display);
   font-size: clamp(3rem, 13.5vw, 16rem);
-  line-height: 0.8;
+  line-height: 0.85;
+  font-weight: 700;
 }
 
 /* ============================================
@@ -127,8 +239,30 @@ html.lenis {
 }
 
 /* ============================================
+   TEXT GRADIENT
+   ============================================ */
+.text-gradient {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ============================================
    UTILITIES
    ============================================ */
 .container-lg {
   @apply max-w-[1400px] mx-auto px-6 md:px-12;
+}
+
+/* Smooth image reveal */
+.img-reveal {
+  clip-path: inset(0 0 100% 0);
+  animation: imgReveal 1.2s cubic-bezier(0.77, 0, 0.175, 1) forwards;
+}
+
+@keyframes imgReveal {
+  to {
+    clip-path: inset(0 0 0% 0);
+  }
 }

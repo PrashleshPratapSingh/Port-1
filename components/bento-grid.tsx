@@ -1,43 +1,104 @@
 'use client'
 
-import { ArrowUpRight, Github, MapPin, Code2, GraduationCap } from 'lucide-react'
+import { useEffect, useRef } from 'react'
+import { ArrowUpRight, Github, MapPin, Code2, GraduationCap, Sparkles, Star } from 'lucide-react'
+import gsap from 'gsap'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
+
+gsap.registerPlugin(ScrollTrigger)
 
 const techStacks = [
     'React', 'Next.js', 'TypeScript', 'Python', 'TailwindCSS', 'Node.js', 'Git', 'Figma'
 ]
 
 export function BentoGrid() {
+    const sectionRef = useRef<HTMLElement>(null)
+    const cardsRef = useRef<HTMLDivElement>(null)
+
+    useEffect(() => {
+        if (!cardsRef.current) return
+
+        const cards = cardsRef.current.children
+
+        gsap.fromTo(cards,
+            { y: 60, opacity: 0 },
+            {
+                y: 0,
+                opacity: 1,
+                duration: 0.8,
+                stagger: 0.1,
+                ease: 'power3.out',
+                scrollTrigger: {
+                    trigger: sectionRef.current,
+                    start: 'top 80%',
+                    toggleActions: 'play none none reverse'
+                }
+            }
+        )
+
+        return () => {
+            ScrollTrigger.getAll().forEach(trigger => trigger.kill())
+        }
+    }, [])
+
     return (
-        <section className="py-12 md:py-16 px-6 md:px-12 max-w-7xl mx-auto">
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4">
-                {/* GitHub Card */}
+        <section ref={sectionRef} className="py-16 md:py-24 px-6 md:px-12 max-w-7xl mx-auto">
+            <div ref={cardsRef} className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-5">
+                {/* GitHub Card - Featured */}
                 <a
                     href="https://github.com/prashlesh"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="group col-span-1 row-span-2 bg-neutral-900 rounded-2xl p-5 md:p-6 flex flex-col justify-between min-h-[220px] hover:bg-neutral-800 transition-all duration-300"
+                    className="group col-span-1 row-span-2 bg-gradient-to-br from-neutral-900 via-neutral-900 to-neutral-800 rounded-3xl p-6 md:p-7 flex flex-col justify-between min-h-[280px] github-glow relative overflow-hidden"
                 >
-                    <div className="flex justify-between items-start">
-                        <Github className="w-7 h-7 text-white" />
-                        <ArrowUpRight className="w-4 h-4 text-neutral-500 group-hover:text-white group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all" />
+                    {/* Animated gradient border on hover */}
+                    <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                        <div className="absolute inset-[1px] bg-gradient-to-br from-neutral-900 via-neutral-900 to-neutral-800 rounded-3xl" />
+                        <div className="absolute inset-0 bg-gradient-to-br from-violet-500/20 via-transparent to-pink-500/20 rounded-3xl" />
                     </div>
-                    <div>
-                        <h4 className="text-lg font-medium text-white">GitHub</h4>
-                        <p className="text-neutral-500 text-sm">@prashlesh</p>
+
+                    <div className="flex justify-between items-start relative z-10">
+                        <div className="w-12 h-12 rounded-2xl bg-white/10 backdrop-blur-sm flex items-center justify-center group-hover:bg-white/20 transition-all duration-300">
+                            <Github className="w-6 h-6 text-white" />
+                        </div>
+                        <ArrowUpRight className="w-5 h-5 text-neutral-500 group-hover:text-white group-hover:translate-x-1 group-hover:-translate-y-1 transition-all duration-300" />
+                    </div>
+
+                    <div className="relative z-10 mt-auto">
+                        <div className="flex items-center gap-2 mb-3">
+                            <div className="flex -space-x-1">
+                                <div className="w-2 h-2 rounded-full bg-emerald-400" />
+                                <div className="w-2 h-2 rounded-full bg-blue-400" />
+                                <div className="w-2 h-2 rounded-full bg-violet-400" />
+                            </div>
+                            <span className="text-xs text-neutral-400">Active</span>
+                        </div>
+                        <h4 className="text-xl font-semibold text-white mb-1">GitHub</h4>
+                        <p className="text-neutral-400 text-sm mb-3">@prashlesh</p>
+                        <div className="flex items-center gap-3 text-xs text-neutral-500">
+                            <span className="flex items-center gap-1">
+                                <Star className="w-3 h-3" /> Repos
+                            </span>
+                            <span className="flex items-center gap-1">
+                                <Sparkles className="w-3 h-3" /> Open Source
+                            </span>
+                        </div>
                     </div>
                 </a>
 
                 {/* Tech Stack */}
-                <div className="col-span-1 md:col-span-2 bg-white border border-neutral-200 rounded-2xl p-5 md:p-6">
-                    <div className="flex items-center gap-2 mb-4">
-                        <Code2 className="w-4 h-4 text-neutral-400" />
-                        <span className="text-xs font-medium text-neutral-500 uppercase tracking-wider">Tech Stack</span>
+                <div className="col-span-1 md:col-span-2 bg-white border border-neutral-200/80 rounded-3xl p-6 md:p-7 card-hover">
+                    <div className="flex items-center gap-2 mb-5">
+                        <div className="w-8 h-8 rounded-xl bg-neutral-100 flex items-center justify-center">
+                            <Code2 className="w-4 h-4 text-neutral-600" />
+                        </div>
+                        <span className="text-sm font-semibold text-neutral-800">Tech I Work With</span>
                     </div>
-                    <div className="flex flex-wrap gap-1.5">
+                    <div className="flex flex-wrap gap-2">
                         {techStacks.map((tech) => (
                             <span
                                 key={tech}
-                                className="px-2.5 py-1 bg-neutral-100 rounded-md text-xs font-medium text-neutral-700 hover:bg-neutral-200 transition-colors"
+                                className="px-3 py-1.5 bg-neutral-50 border border-neutral-100 rounded-lg text-sm font-medium text-neutral-700 hover:bg-neutral-100 hover:border-neutral-200 transition-all duration-200"
                             >
                                 {tech}
                             </span>
@@ -46,38 +107,46 @@ export function BentoGrid() {
                 </div>
 
                 {/* Location */}
-                <div className="bg-neutral-50 border border-neutral-100 rounded-2xl p-5 flex flex-col justify-between min-h-[100px]">
-                    <MapPin className="w-4 h-4 text-neutral-400" />
+                <div className="bg-gradient-to-br from-neutral-50 to-white border border-neutral-100 rounded-3xl p-6 flex flex-col justify-between min-h-[130px] card-hover">
+                    <div className="w-9 h-9 rounded-xl bg-white shadow-sm border border-neutral-100 flex items-center justify-center">
+                        <MapPin className="w-4 h-4 text-neutral-500" />
+                    </div>
                     <div>
-                        <p className="text-[10px] text-neutral-400 uppercase tracking-wider">Based in</p>
-                        <p className="text-sm font-medium text-neutral-900">India</p>
+                        <p className="text-[11px] text-neutral-400 uppercase tracking-wider font-medium">Based in</p>
+                        <p className="text-base font-semibold text-neutral-900 mt-0.5">India 🇮🇳</p>
                     </div>
                 </div>
 
-                {/* Status */}
-                <div className="bg-white border border-neutral-200 rounded-2xl p-5 flex flex-col justify-between min-h-[100px]">
-                    <div className="flex items-center gap-1.5">
-                        <span className="relative flex h-2 w-2">
+                {/* Status - Available */}
+                <div className="bg-gradient-to-br from-emerald-50 to-teal-50/50 border border-emerald-100/80 rounded-3xl p-6 flex flex-col justify-between min-h-[130px] card-hover">
+                    <div className="flex items-center gap-2">
+                        <span className="relative flex h-2.5 w-2.5">
                             <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-                            <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+                            <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500"></span>
                         </span>
-                        <span className="text-[10px] text-emerald-600 font-medium uppercase tracking-wider">Available</span>
+                        <span className="text-[11px] text-emerald-700 font-semibold uppercase tracking-wider">Available</span>
                     </div>
                     <div>
-                        <p className="text-[10px] text-neutral-400 uppercase tracking-wider">Open for</p>
-                        <p className="text-sm font-medium text-neutral-900">Internships & Projects</p>
+                        <p className="text-[11px] text-neutral-500 uppercase tracking-wider font-medium">Open for</p>
+                        <p className="text-base font-semibold text-neutral-900 mt-0.5">Internships & Projects</p>
                     </div>
                 </div>
 
                 {/* Currently Learning */}
-                <div className="col-span-1 bg-white border border-neutral-200 rounded-2xl p-5 flex flex-col justify-between min-h-[100px]">
-                    <div className="flex items-center gap-1.5">
-                        <GraduationCap className="w-4 h-4 text-neutral-400" />
-                        <span className="text-[10px] text-neutral-500 font-medium uppercase tracking-wider">Learning</span>
+                <div className="col-span-1 bg-gradient-to-br from-violet-50 to-purple-50/50 border border-violet-100/80 rounded-3xl p-6 flex flex-col justify-between min-h-[130px] card-hover">
+                    <div className="flex items-center gap-2">
+                        <div className="w-7 h-7 rounded-lg bg-white/80 shadow-sm flex items-center justify-center">
+                            <GraduationCap className="w-4 h-4 text-violet-600" />
+                        </div>
+                        <span className="text-[11px] text-violet-700 font-semibold uppercase tracking-wider">Learning</span>
                     </div>
-                    <div className="flex flex-wrap gap-1.5">
-                        <span className="px-2 py-0.5 bg-neutral-100 rounded text-xs text-neutral-600">System Design</span>
-                        <span className="px-2 py-0.5 bg-neutral-100 rounded text-xs text-neutral-600">DSA</span>
+                    <div className="flex flex-wrap gap-1.5 mt-auto">
+                        <span className="px-2.5 py-1 bg-white/80 border border-violet-100 rounded-lg text-xs font-medium text-violet-700">
+                            System Design
+                        </span>
+                        <span className="px-2.5 py-1 bg-white/80 border border-violet-100 rounded-lg text-xs font-medium text-violet-700">
+                            DSA
+                        </span>
                     </div>
                 </div>
             </div>

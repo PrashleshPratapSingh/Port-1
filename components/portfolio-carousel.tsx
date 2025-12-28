@@ -1,142 +1,115 @@
 'use client'
 
-import { useEffect, useRef } from 'react'
+import { useRef } from 'react'
 import { ArrowUpRight } from 'lucide-react'
-import gsap from 'gsap'
-import { ScrollTrigger } from 'gsap/ScrollTrigger'
-
-// Register ScrollTrigger plugin
-gsap.registerPlugin(ScrollTrigger)
+import Link from 'next/link'
 
 const projects = [
     {
         id: 1,
-        title: 'Nova Finance',
-        category: 'Web Design / Development',
-        image: 'https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/917d6f93-fb36-439a-8c48-884b67b35381_1600w.jpg',
+        title: "E-Commerce Platform",
+        category: "Full Stack Development",
+        image: "https://images.unsplash.com/photo-1557821552-17105176677c?q=80&w=1600&auto=format&fit=crop",
+        year: "2024"
     },
     {
         id: 2,
-        title: 'MOMA Expansion',
-        category: 'Brand Identity / UI',
-        image: 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=2564&auto=format&fit=crop',
+        title: "Finance Dashboard",
+        category: "UI/UX Design",
+        image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=1600&auto=format&fit=crop",
+        year: "2023"
     },
     {
         id: 3,
-        title: 'Aesop Redesign',
-        category: 'E-commerce / UX',
-        image: 'https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/4734259a-bad7-422f-981e-ce01e79184f2_1600w.jpg',
+        title: "AI Chat Application",
+        category: "Frontend Engineering",
+        image: "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?q=80&w=1600&auto=format&fit=crop",
+        year: "2023"
     },
     {
         id: 4,
-        title: 'Brutal Form',
-        category: 'Portfolio / Interaction',
-        image: 'https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/c543a9e1-f226-4ced-80b0-feb8445a75b9_1600w.jpg',
-    },
+        title: "Travel App Design",
+        category: "Mobile Design",
+        image: "https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?q=80&w=1600&auto=format&fit=crop",
+        year: "2022"
+    }
 ]
 
 export function PortfolioCarousel() {
-    const sectionRef = useRef<HTMLElement>(null)
-    const trackRef = useRef<HTMLDivElement>(null)
-    const progressRef = useRef<HTMLDivElement>(null)
-
-    useEffect(() => {
-        const section = sectionRef.current
-        const track = trackRef.current
-        const progress = progressRef.current
-        if (!section || !track) return
-
-        // Calculate the scroll distance needed
-        const getScrollDistance = () => {
-            return -(track.scrollWidth - window.innerWidth)
-        }
-
-        // Create the horizontal scroll animation with GSAP ScrollTrigger
-        const tl = gsap.timeline({
-            scrollTrigger: {
-                trigger: section,
-                start: 'top top',
-                end: () => `+=${track.scrollWidth - window.innerWidth}`,
-                pin: true,
-                scrub: 1, // Smooth scrubbing
-                anticipatePin: 1,
-                invalidateOnRefresh: true,
-                onUpdate: (self) => {
-                    // Update progress bar
-                    if (progress) {
-                        progress.style.width = `${self.progress * 100}%`
-                    }
-                },
-            },
-        })
-
-        // Animate the track horizontally
-        tl.to(track, {
-            x: getScrollDistance,
-            ease: 'none',
-        })
-
-        // Handle resize
-        const handleResize = () => {
-            ScrollTrigger.refresh()
-        }
-        window.addEventListener('resize', handleResize)
-
-        // Cleanup
-        return () => {
-            window.removeEventListener('resize', handleResize)
-            tl.kill()
-            ScrollTrigger.getAll().forEach((trigger) => trigger.kill())
-        }
-    }, [])
-
     return (
-        <section ref={sectionRef} className="bg-[#fcfbf9] relative overflow-hidden" id="portfolio">
-            <div className="flex flex-col bg-[#fcfbf9] w-full min-h-screen justify-center">
-                <div className="absolute top-0 left-0 w-full px-6 md:px-12 pt-8 md:pt-12 flex justify-between items-center z-10 pointer-events-none">
-                    <h2 className="text-sm font-semibold tracking-widest uppercase text-neutral-900">
+        <section className="py-24 bg-neutral-950 text-white overflow-hidden" id="portfolio">
+            <div className="container-lg mb-12 flex items-end justify-between px-6 md:px-12">
+                <div>
+                    <span className="text-xs font-semibold tracking-widest text-neutral-500 uppercase">
                         Selected Works
+                    </span>
+                    <h2 className="text-3xl md:text-5xl font-medium mt-4 tracking-tight">
+                        Featured Projects
                     </h2>
-                    <span className="text-xs font-medium tracking-widest uppercase text-neutral-400">
-                        2023 — 2024
+                </div>
+                <div className="hidden md:block">
+                    <span className="text-sm text-neutral-500">
+                        {projects.length} Projects
                     </span>
                 </div>
+            </div>
 
-                <div
-                    ref={trackRef}
-                    className="flex items-center gap-6 md:gap-12 pl-6 md:pl-12 w-max will-change-transform"
-                >
-                    {projects.map((project, index) => (
-                        <article
+            {/* Horizontal Scroll Container */}
+            <div className="w-full overflow-x-auto no-scrollbar pb-12 pl-6 md:pl-12 pr-6">
+                <div className="flex gap-6 w-max">
+                    {projects.map((project) => (
+                        <div
                             key={project.id}
-                            className={`group relative w-[85vw] md:w-[40vw] shrink-0 cursor-pointer ${index === projects.length - 1 ? 'pr-6 md:pr-12' : ''}`}
+                            className="w-[85vw] md:w-[600px] group relative flex-shrink-0"
                         >
-                            <div className="w-full aspect-[4/3] overflow-hidden rounded-md bg-neutral-200 relative">
-                                <img
-                                    src={project.image}
-                                    alt={project.title}
-                                    className="w-full h-full object-cover grayscale transition-all duration-700 group-hover:grayscale-0 group-hover:scale-105"
-                                />
-                                <div className="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors" />
-                            </div>
-                            <div className="mt-6 flex justify-between items-start">
-                                <div>
-                                    <h3 className="text-2xl font-semibold tracking-tight text-neutral-900">
-                                        {project.title}
-                                    </h3>
-                                    <p className="text-sm text-neutral-500 mt-2">{project.category}</p>
-                                </div>
-                                <div className="w-10 h-10 rounded-full border border-neutral-200 flex items-center justify-center text-neutral-400 group-hover:text-neutral-900 group-hover:border-neutral-900 transition-all">
-                                    <ArrowUpRight className="w-[18px] h-[18px]" strokeWidth={1.5} />
-                                </div>
-                            </div>
-                        </article>
-                    ))}
-                </div>
+                            <Link href={`/project/${project.id}`} className="block">
+                                <div className="aspect-[4/3] overflow-hidden rounded-2xl bg-neutral-900 relative">
+                                    <div className="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors duration-500 z-10" />
+                                    <img
+                                        src={project.image}
+                                        alt={project.title}
+                                        className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700"
+                                    />
 
-                <div className="absolute bottom-8 left-6 md:left-12 w-48 h-px bg-neutral-200 overflow-hidden">
-                    <div ref={progressRef} className="h-full bg-neutral-900 w-0" />
+                                    {/* Floating overlay button */}
+                                    <div className="absolute top-6 right-6 z-20 w-12 h-12 bg-white rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transform translate-y-4 group-hover:translate-y-0 transition-all duration-300">
+                                        <ArrowUpRight className="w-5 h-5 text-neutral-900" />
+                                    </div>
+                                </div>
+
+                                <div className="mt-6 flex justify-between items-start">
+                                    <div>
+                                        <h3 className="text-2xl font-medium text-white group-hover:text-neutral-300 transition-colors">
+                                            {project.title}
+                                        </h3>
+                                        <p className="text-neutral-500 mt-2 text-sm">
+                                            {project.category}
+                                        </p>
+                                    </div>
+                                    <span className="text-neutral-600 font-mono text-sm border border-neutral-800 px-3 py-1 rounded-full">
+                                        {project.year}
+                                    </span>
+                                </div>
+                            </Link>
+                        </div>
+                    ))}
+
+                    {/* View All Card */}
+                    <div className="w-[300px] flex-shrink-0 flex items-center justify-center bg-neutral-900/50 rounded-2xl border border-neutral-800 group hover:bg-neutral-900 transition-colors cursor-pointer ml-6 mr-12">
+                        <Link href="/projects" className="flex flex-col items-center gap-4 p-12 text-center">
+                            <div className="w-16 h-16 rounded-full border border-neutral-700 flex items-center justify-center group-hover:scale-110 group-hover:border-white transition-all duration-300">
+                                <ArrowUpRight className="w-6 h-6 text-neutral-500 group-hover:text-white" />
+                            </div>
+                            <span className="text-lg font-medium text-white">View All Projects</span>
+                        </Link>
+                    </div>
                 </div>
+            </div>
+
+            {/* Scroll Progress / Tip (Visible on desktop) */}
+            <div className="container-lg px-6 md:px-12 mt-4 hidden md:flex items-center gap-4 opacity-40">
+                <div className="h-[1px] bg-white w-24"></div>
+                <span className="text-xs uppercase tracking-widest">Scroll or Drag</span>
             </div>
         </section>
     )
