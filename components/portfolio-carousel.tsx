@@ -1,7 +1,12 @@
 'use client'
 
-import { useEffect, useRef, useLayoutEffect, useState } from 'react'
+import { useEffect, useRef } from 'react'
 import { ArrowUpRight } from 'lucide-react'
+import gsap from 'gsap'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
+
+// Register ScrollTrigger plugin
+gsap.registerPlugin(ScrollTrigger)
 
 const projects = [
     {
@@ -34,25 +39,6 @@ export function PortfolioCarousel() {
     const sectionRef = useRef<HTMLElement>(null)
     const trackRef = useRef<HTMLDivElement>(null)
     const progressRef = useRef<HTMLDivElement>(null)
-    const [sectionHeight, setSectionHeight] = useState('100vh')
-
-    // Calculate exact height needed for horizontal scroll
-    useLayoutEffect(() => {
-        const calculateHeight = () => {
-            if (!trackRef.current) return
-            const trackWidth = trackRef.current.scrollWidth
-            const windowWidth = window.innerWidth
-            const windowHeight = window.innerHeight
-            // Exact height: viewport + horizontal scroll distance, minus extra padding
-            const scrollDistance = trackWidth - windowWidth
-            // Subtract height to reduce gap at the end
-            setSectionHeight(`${windowHeight + scrollDistance - 300}px`)
-        }
-
-        calculateHeight()
-        window.addEventListener('resize', calculateHeight)
-        return () => window.removeEventListener('resize', calculateHeight)
-    }, [])
 
     useEffect(() => {
         const section = sectionRef.current
@@ -60,48 +46,53 @@ export function PortfolioCarousel() {
         const progress = progressRef.current
         if (!section || !track) return
 
-        let animationScroll = 0
-        let animationProgress = 0
-        let targetScroll = 0
-        let targetProgress = 0
-
-        const animate = () => {
-            animationScroll += (targetScroll - animationScroll) * 0.1
-            animationProgress += (targetProgress - animationProgress) * 0.1
-            track.style.transform = `translateX(${animationScroll}px)`
-            if (progress) progress.style.width = `${animationProgress * 100}%`
-            requestAnimationFrame(animate)
+        // Calculate the scroll distance needed
+        const getScrollDistance = () => {
+            return -(track.scrollWidth - window.innerWidth)
         }
 
-        const handleScroll = () => {
-            const rect = section.getBoundingClientRect()
-            const scrollDistance = track.scrollWidth - window.innerWidth
-            const scrollableHeight = section.offsetHeight - window.innerHeight
-            const scrolled = -rect.top
+        // Create the horizontal scroll animation with GSAP ScrollTrigger
+        const tl = gsap.timeline({
+            scrollTrigger: {
+                trigger: section,
+                start: 'top top',
+                end: () => `+=${track.scrollWidth - window.innerWidth}`,
+                pin: true,
+                scrub: 1, // Smooth scrubbing
+                anticipatePin: 1,
+                invalidateOnRefresh: true,
+                onUpdate: (self) => {
+                    // Update progress bar
+                    if (progress) {
+                        progress.style.width = `${self.progress * 100}%`
+                    }
+                },
+            },
+        })
 
-            if (rect.top <= 0 && rect.bottom >= window.innerHeight) {
-                const pct = Math.min(Math.max(scrolled / scrollableHeight, 0), 1)
-                targetScroll = -scrollDistance * pct
-                targetProgress = pct
-            } else if (rect.top > 0) {
-                targetScroll = 0
-                targetProgress = 0
-            } else {
-                targetScroll = -scrollDistance
-                targetProgress = 1
-            }
+        // Animate the track horizontally
+        tl.to(track, {
+            x: getScrollDistance,
+            ease: 'none',
+        })
+
+        // Handle resize
+        const handleResize = () => {
+            ScrollTrigger.refresh()
         }
+        window.addEventListener('resize', handleResize)
 
-        window.addEventListener('scroll', handleScroll, { passive: true })
-        handleScroll()
-        animate()
-
-        return () => window.removeEventListener('scroll', handleScroll)
+        // Cleanup
+        return () => {
+            window.removeEventListener('resize', handleResize)
+            tl.kill()
+            ScrollTrigger.getAll().forEach((trigger) => trigger.kill())
+        }
     }, [])
 
     return (
-        <section ref={sectionRef} className="bg-[#fcfbf9] relative" id="portfolio" style={{ height: sectionHeight }}>
-            <div className="sticky overflow-hidden flex flex-col bg-[#fcfbf9] w-full h-screen top-0 justify-center">
+        <section ref={sectionRef} className="bg-[#fcfbf9] relative overflow-hidden" id="portfolio">
+            <div className="flex flex-col bg-[#fcfbf9] w-full min-h-screen justify-center">
                 <div className="absolute top-0 left-0 w-full px-6 md:px-12 pt-8 md:pt-12 flex justify-between items-center z-10 pointer-events-none">
                     <h2 className="text-sm font-semibold tracking-widest uppercase text-neutral-900">
                         Selected Works
