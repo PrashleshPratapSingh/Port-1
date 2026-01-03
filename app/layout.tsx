@@ -2,10 +2,10 @@ import type { Metadata } from 'next'
 import './globals.css'
 
 export const metadata: Metadata = {
-  title: 'Prashlesh | Software Engineer',
-  description: 'I build high-performing low-code websites that launch fast, look premium, and convert with impact.',
-  keywords: ['Web Design', 'Development', 'UI/UX', 'Webflow', 'Framer', 'React'],
-  authors: [{ name: 'Valeriia Shchebetovska' }],
+  title: 'Prashlesh Pratap Singh | Computer Science Student',
+  description: 'Portfolio of Prashlesh Pratap Singh, a Computer Science student specializing in full-stack web development and blockchain.',
+  keywords: ['Computer Science', 'Full Stack', 'Next.js', 'React', 'MERN', 'Blockchain', 'Solidity'],
+  authors: [{ name: 'Prashlesh Pratap Singh' }],
 }
 
 export default function RootLayout({

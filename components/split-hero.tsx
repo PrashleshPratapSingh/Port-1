@@ -64,7 +64,7 @@ export function SplitHero({ onNavigate }: SplitHeroProps) {
                 <div className="flex flex-col md:p-10 z-10 h-full pt-6 pr-6 pb-6 pl-6 relative justify-between">
                     {/* Giant Text Part 1 */}
                     <h1 ref={titleLeftRef} className="giant-text uppercase md:mt-0 font-semibold text-white tracking-tighter mt-0">
-                        Digital
+                        Computer
                     </h1>
 
                     {/* Hero Navigation (Bottom Right of Left Panel) */}
@@ -103,11 +103,11 @@ export function SplitHero({ onNavigate }: SplitHeroProps) {
                 {/* Giant Text Part 2 */}
                 <div className="w-full relative">
                     <h1 ref={titleRightRef} className="giant-text font-semibold tracking-tighter text-neutral-950 uppercase -ml-1 md:-ml-2">
-                        Designer
+                        Science
                     </h1>
                     <div className="text-right w-full mt-2 md:mt-4">
                         <h2 ref={subtitleRef} className="text-3xl md:text-5xl lg:text-6xl font-medium tracking-tighter text-neutral-950 uppercase">
-                            &amp; Developer
+                            Student <span className="text-neutral-400">&</span> Dev
                         </h2>
                     </div>
                 </div>
@@ -122,7 +122,7 @@ export function SplitHero({ onNavigate }: SplitHeroProps) {
 
                         <p className="text-base font-normal text-neutral-500 leading-relaxed">
                             I'm <span className="text-neutral-900 font-medium">Prashlesh Pratap Singh</span>.
-                            I build high-performing websites that launch fast, look premium, and convert with impact.
+                            A driven Computer Science student at Woxsen University specializing in full-stack web development and blockchain.
                         </p>
                     </div>
                 </div>

@@ -25,10 +25,10 @@ export function ContactFooter() {
                                     Email
                                 </span>
                                 <a
-                                    href="mailto:hello@valeriia.dev"
+                                    href="mailto:iamprashlesh@gmail.com"
                                     className="text-xl md:text-2xl hover:text-neutral-400 transition-colors"
                                 >
-                                    hello@valeriia.dev
+                                    iamprashlesh@gmail.com
                                 </a>
                             </div>
                             <div>
@@ -36,13 +36,13 @@ export function ContactFooter() {
                                     Socials
                                 </span>
                                 <div className="flex gap-6 text-xl md:text-2xl">
-                                    <a href="#" className="hover:text-neutral-400 transition-colors">
+                                    <a href="https://linkedin.com/in/prashlesh" target="_blank" className="hover:text-neutral-400 transition-colors">
                                         LinkedIn
                                     </a>
-                                    <a href="#" className="hover:text-neutral-400 transition-colors">
-                                        Twitter
+                                    <a href="https://github.com/vengeanceprashlesh" target="_blank" className="hover:text-neutral-400 transition-colors">
+                                        GitHub
                                     </a>
-                                    <a href="#" className="hover:text-neutral-400 transition-colors">
+                                    <a href="https://instagram.com" target="_blank" className="hover:text-neutral-400 transition-colors">
                                         Instagram
                                     </a>
                                 </div>
@@ -51,7 +51,7 @@ export function ContactFooter() {
                     </div>
 
                     <a
-                        href="mailto:hello@valeriia.dev"
+                        href="mailto:iamprashlesh@gmail.com"
                         className="group relative w-32 h-32 md:w-40 md:h-40 rounded-full border border-neutral-700 flex items-center justify-center hover:bg-[#fcfbf9] hover:text-neutral-950 transition-all duration-500"
                     >
                         <span className="text-sm font-medium uppercase tracking-widest group-hover:scale-110 transition-transform">
@@ -64,8 +64,8 @@ export function ContactFooter() {
                 </div>
 
                 <div className="border-t border-neutral-800 pt-8 flex flex-col md:flex-row justify-between items-center text-xs text-neutral-500 uppercase tracking-widest">
-                    <span>© 2024 Valeriia Shchebetovska</span>
-                    <span className="mt-2 md:mt-0">Design &amp; Development</span>
+                    <span>© 2025 Prashlesh Pratap Singh</span>
+                    <span className="mt-2 md:mt-0">Computer Science Student</span>
                 </div>
             </div>
         </footer>
