@@ -31,8 +31,8 @@ export default function AboutPage() {
             About Me
           </h1>
           <p className="text-xl text-neutral-400 max-w-2xl mb-10">
-            I'm Prashlesh Pratap Singh, a Computer Science student at Woxsen University
-            passionate about building modern web applications and blockchain solutions.
+            A driven and ambitious second-year Computer Science student at Woxsen University
+            specializing in full-stack web development with the MERN stack.
           </p>
           <a
             href="/resume.pdf"
@@ -67,7 +67,7 @@ export default function AboutPage() {
 
         {/* Story */}
         <section className="mb-20">
-          <p className="text-xs font-medium uppercase tracking-wider text-neutral-500 mb-6">Story</p>
+          <p className="text-xs font-medium uppercase tracking-wider text-neutral-500 mb-6">Profile</p>
           <div className="grid md:grid-cols-2 gap-8">
             <motion.p
               initial={{ opacity: 0, y: 20 }}
@@ -75,9 +75,9 @@ export default function AboutPage() {
               viewport={{ once: true }}
               className="text-xl text-neutral-300 leading-relaxed"
             >
-              My journey in tech started with curiosity about how websites work.
-              Today, I build full-stack applications and explore blockchain technology
-              to create solutions that matter.
+              I have hands-on experience building complete applications, including a university management system
+              and a psychology app. As a participant in the Smart India Hackathon, I am skilled at collaborating
+              and delivering solutions under pressure.
             </motion.p>
             <motion.p
               initial={{ opacity: 0, y: 20 }}
@@ -86,9 +86,8 @@ export default function AboutPage() {
               transition={{ delay: 0.1 }}
               className="text-xl text-neutral-300 leading-relaxed"
             >
-              Currently working on AURA - a modern e-commerce platform, and HerbX -
-              a blockchain supply chain system. I participated in Smart India Hackathon
-              and I'm certified in UX Design.
+              I am eager to apply my skills in JavaScript, React, and Node.js to a challenging internship role.
+              Currently certified in Foundations of User Experience (UX) Design and expanding my knowledge in Blockchain.
             </motion.p>
           </div>
         </section>

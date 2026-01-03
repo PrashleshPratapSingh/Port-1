@@ -8,7 +8,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger'
 gsap.registerPlugin(ScrollTrigger)
 
 const techStacks = [
-    'React', 'Next.js', 'TypeScript', 'Python', 'TailwindCSS', 'Node.js', 'Git', 'Figma'
+    'React', 'Next.js', 'TypeScript', 'Node.js', 'Express', 'MongoDB', 'TailwindCSS', 'Python', 'C++', 'Git', 'Figma'
 ]
 
 export function BentoGrid() {
