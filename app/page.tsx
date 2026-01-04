@@ -1,4 +1,4 @@
-import { SplitHero } from '@/components/split-hero'
+import { RefinedSplitHero } from '@/components/refined-split-hero'
 import { ProfileSection } from '@/components/profile-section'
 import { BentoGrid } from '@/components/bento-grid'
 import { PortfolioCarousel } from '@/components/portfolio-carousel'
@@ -7,8 +7,8 @@ import { ContactFooter } from '@/components/contact-footer'
 export default function Home() {
   return (
     <main className="selection:bg-neutral-900 selection:text-white overflow-x-hidden text-neutral-900 bg-[#fcfbf9]">
-      {/* Split Hero Section */}
-      <SplitHero />
+      {/* Hero Section */}
+      <RefinedSplitHero />
 
       {/* Me / About Section */}
       <ProfileSection />
