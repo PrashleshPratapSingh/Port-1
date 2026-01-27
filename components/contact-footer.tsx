@@ -39,7 +39,7 @@ export function ContactFooter() {
                                     <a href="https://linkedin.com/in/prashlesh" target="_blank" className="hover:text-neutral-400 transition-colors">
                                         LinkedIn
                                     </a>
-                                    <a href="https://github.com/vengeanceprashlesh" target="_blank" className="hover:text-neutral-400 transition-colors">
+                                    <a href="https://github.com/PrashleshPratapSingh" target="_blank" className="hover:text-neutral-400 transition-colors">
                                         GitHub
                                     </a>
                                     <a href="https://instagram.com" target="_blank" className="hover:text-neutral-400 transition-colors">

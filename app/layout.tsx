@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import './globals.css'
 
+
 export const metadata: Metadata = {
   title: 'Prashlesh Pratap Singh | Computer Science Student',
   description: 'Portfolio of Prashlesh Pratap Singh, a Computer Science student specializing in full-stack web development and blockchain.',

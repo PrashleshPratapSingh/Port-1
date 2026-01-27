@@ -46,7 +46,7 @@ export function BentoGrid() {
             <div ref={cardsRef} className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-5">
                 {/* GitHub Card - Featured */}
                 <a
-                    href="https://github.com/prashlesh"
+                    href="https://github.com/PrashleshPratapSingh"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="group col-span-1 row-span-2 bg-gradient-to-br from-neutral-900 via-neutral-900 to-neutral-800 rounded-3xl p-6 md:p-7 flex flex-col justify-between min-h-[280px] github-glow relative overflow-hidden"
@@ -74,7 +74,7 @@ export function BentoGrid() {
                             <span className="text-xs text-neutral-400">Active</span>
                         </div>
                         <h4 className="text-xl font-semibold text-white mb-1">GitHub</h4>
-                        <p className="text-neutral-400 text-sm mb-3">@prashlesh</p>
+                        <p className="text-neutral-400 text-sm mb-3">@PrashleshPratapSingh</p>
                         <div className="flex items-center gap-3 text-xs text-neutral-500">
                             <span className="flex items-center gap-1">
                                 <Star className="w-3 h-3" /> Repos

@@ -56,7 +56,7 @@ export function RefinedSplitHero({ onNavigate }: RefinedSplitHeroProps) {
             <div className="md:w-1/2 md:h-screen overflow-hidden group bg-neutral-950 w-full h-[50vh] relative flex flex-col justify-between p-6 md:p-10">
 
                 {/* Noise Texture Overlay */}
-                <div className="absolute inset-0 opacity-[0.03] pointer-events-none bg-[url('https://grainy-gradients.vercel.app/noise.svg')] brightness-100 contrast-150 z-10" />
+
 
                 {/* Background Image Container */}
                 <div className="absolute inset-0 z-0">

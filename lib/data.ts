@@ -43,40 +43,80 @@ export interface Project {
   image: string
   featured: boolean
   category: 'AI/ML' | 'Full-Stack' | 'Blockchain'
+  year: string
+  imageAlignment?: string
 }
 
 export const projects: Project[] = [
   {
-    id: 'aura-ecommerce',
-    title: 'Aura - E-commerce Clothing Store',
-    tagline: 'Modern clothing brand platform with 3D visualization',
-    description: 'Developed and deployed a full-stack e-commerce platform featuring a clean, intuitive UI/UX, dynamic product listings, and a persistent shopping cart using Convex.',
-    longDescription: 'Created a comprehensive e-commerce solution for a modern clothing brand. The platform features dynamic product listings, a persistent shopping cart, and real-time backend database management using Convex. Delivered a seamless shopping experience with polished UI/UX.',
+    id: 'most-valuable',
+    title: 'Most Valuable - Raffle Platform',
+    tagline: 'High-stakes e-commerce raffle system',
+    description: 'Developed a high-performance e-commerce raffle platform. Features secure entry systems, real-time draw mechanics, and a transparent winner selection process.',
+    longDescription: 'A freelance project built for high-demand raffle events. Engineered a seamless entry system with secure payment integration and real-time participation tracking. The platform ensures fairness and transparency in every draw, handling high-traffic drops with ease.',
     metrics: [
-      { label: 'Performance', value: 'High' },
-      { label: 'UX', value: 'Intuitive' },
-      { label: 'Database', value: 'Real-time' },
+      { label: 'Type', value: 'Freelance' },
+      { label: 'Security', value: 'High' },
+      { label: 'Scale', value: 'Global' },
     ],
-    techStack: ['Next.js', 'React', 'Convex', 'TypeScript', 'Tailwind CSS'],
+    techStack: ['Next.js', 'React', 'TypeScript', 'Tailwind CSS', 'PostgreSQL'],
     features: [
-      'Dynamic product listings',
-      'Persistent shopping cart',
-      'Real-time database management',
-      'Clean and intuitive UI/UX',
+      'Secure raffle entry system',
+      'Real-time participation tracking',
+      'Transparent winner selection',
+      'High-traffic performance',
     ],
     challenges: [
-      'Implementing persistent cart state',
-      'Optimizing real-time data flow',
+      'Ensuring fair draw logic',
+      'Handling concurrent user spikes',
     ],
     learnings: [
-      'Convex database integration',
-      'E-commerce state management patterns',
+      'Secure transaction handling',
+      'High-concurrency architecture',
     ],
-    github: 'https://github.com/vengeanceprashlesh/AURA', // Assuming same repo
-    demo: 'https://aura-clothing-blond.vercel.app/',
-    image: '/projects/aura.png',
+    github: 'https://github.com/PrashleshPratapSingh/most-valuable',
+    demo: 'https://most-valuable.vercel.app/',
+    image: '/projects/most-valuable.png',
     featured: true,
     category: 'Full-Stack',
+    year: '2024',
+    imageAlignment: 'object-bottom',
+  },
+  {
+    id: 'empath-ai',
+    title: 'EmpathAI - Mental Health Support',
+    tagline: 'Always-available, voice-first empathic AI companion',
+    description: 'An AI-powered mental health safety net offering real-time, voice-based support and crisis detection for those unable to access traditional therapy.',
+    longDescription: 'EmpathAI isn\'t checking boxes—it\'s listening. Built to bridge the gap when human help isn\'t available, it serves as a judgment-free, 24/7 mental health companion.\n\nUnlike standard chatbots, EmpathAI processes voice tone, sentiment, and historical context to provide genuine, therapeutic-grade empathy. It features a three-layer architecture: a responsive Frontend (Next.js/Framer), a deep Intelligence Layer (Gemini/Llama/Groq) for emotion detection, and a secure Data Layer (Convex) for privacy.\n\nThe system includes real-time crisis detection to intervene when professional help is urgently needed, making it a critical tool for students, professionals, and underserved communities.',
+    metrics: [
+      { label: 'Response Time', value: '<500ms' },
+      { label: 'Availability', value: '24/7' },
+      { label: 'Privacy', value: 'E2E Encrypted' },
+    ],
+    techStack: ['Next.js 15', 'Gemini 2.5', 'Llama 3.3', 'Groq', 'Convex', 'Clerk', 'Framer Motion'],
+    features: [
+      'Natural Voice Conversations (No typing)',
+      'Real-time Emotion & Tone Analysis',
+      'Crisis Pattern Detection',
+      'Long-term Memory & Context Retention'
+    ],
+    challenges: [
+      'Achieving sub-500ms latency for voice-to-voice interaction',
+      'Balancing AI empathy with clinical safety boundaries',
+      'Architecting a secure, HIPAA-compliant real-time data layer'
+    ],
+    learnings: [
+      'Complex multi-modal AI pipeline verification',
+      'Real-time WebSocket audio streaming optimization',
+      'Designing "Human-in-the-loop" safety nets for AI'
+    ],
+    demo: 'https://empath-ai-omega.vercel.app/',
+    github: 'https://github.com/PrashleshPratapSingh',
+    image: '/empath-ai.png',
+    featured: true,
+    category: 'AI/ML',
+    year: '2026',
+    imageAlignment: 'object-center'
   },
   {
     id: 'herbx-blockchain',
@@ -104,10 +144,11 @@ export const projects: Project[] = [
       'Blockchain application architecture',
       'Supply chain transparency solutions',
     ],
-    github: 'https://github.com/vengeanceprashlesh/HerbX', // Assuming same repo
+    github: 'https://github.com/PrashleshPratapSingh/HerbX', // Assuming same repo
     image: '/projects/herbx.png',
     featured: true,
     category: 'Blockchain',
+    year: '2025',
   },
   {
     id: 'evolve-ai',
@@ -138,6 +179,7 @@ export const projects: Project[] = [
     image: '/projects/ai-study.png', // Using existing image path
     featured: true,
     category: 'Full-Stack',
+    year: '2025',
   },
 ]
 
@@ -194,7 +236,7 @@ export const certifications = [
 ]
 
 export const socials = {
-  github: 'https://github.com/vengeanceprashlesh',
+  github: 'https://github.com/PrashleshPratapSingh',
   linkedin: 'https://linkedin.com/in/prashlesh',
   portfolio: 'https://prashlesh-portfolio.vercel.app',
   email: 'iamprashlesh@gmail.com',
