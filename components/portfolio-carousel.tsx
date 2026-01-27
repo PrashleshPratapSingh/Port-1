@@ -100,7 +100,7 @@ export function PortfolioCarousel() {
                                     <img
                                         src={project.image}
                                         alt={project.title}
-                                        className={`parallax-img w-full h-full object-cover ${project.imageAlignment || 'object-center'} scale-110 grayscale hover:grayscale-0 transition-all duration-700 ease-out`}
+                                        className={`parallax-img w-full h-full ${project.objectFit || 'object-cover'} ${project.imageAlignment || 'object-center'} ${project.objectFit ? 'scale-100' : 'scale-110'} grayscale hover:grayscale-0 transition-all duration-700 ease-out`}
                                     />
                                 </Link>
                             </div>

@@ -45,6 +45,7 @@ export interface Project {
   category: 'AI/ML' | 'Full-Stack' | 'Blockchain'
   year: string
   imageAlignment?: string
+  objectFit?: string
 }
 
 export const projects: Project[] = [
@@ -80,7 +81,8 @@ export const projects: Project[] = [
     featured: true,
     category: 'Full-Stack',
     year: '2024',
-    imageAlignment: 'object-bottom',
+    imageAlignment: 'object-center',
+    objectFit: 'object-contain',
   },
   {
     id: 'empath-ai',
@@ -116,7 +118,8 @@ export const projects: Project[] = [
     featured: true,
     category: 'AI/ML',
     year: '2026',
-    imageAlignment: 'object-center'
+    imageAlignment: 'object-center',
+    objectFit: 'object-contain'
   },
   {
     id: 'herbx-blockchain',
@@ -150,37 +153,7 @@ export const projects: Project[] = [
     category: 'Blockchain',
     year: '2025',
   },
-  {
-    id: 'evolve-ai',
-    title: 'Evolve / AI Study App',
-    tagline: 'Personalized AI study application',
-    description: 'A full-stack personalized AI study application designed to help college students optimize their learning process.',
-    longDescription: 'Developed and deployed a full-stack personalized AI study application designed to help college students optimize their learning process. This project was part of the Smart India Hackathon 2025, a 36-hour national-level event solving real-world problems.',
-    metrics: [
-      { label: 'Hackathon', value: 'SIH 2025' },
-      { label: 'Duration', value: '36 Hours' },
-      { label: 'Focus', value: 'AI Learning' },
-    ],
-    techStack: ['Next.js', 'React', 'AI Integration', 'Tailwind CSS'],
-    features: [
-      'Personalized study plans',
-      'AI-driven learning optimization',
-      'Real-world problem solving focus',
-    ],
-    challenges: [
-      'Rapid prototyping in 36 hours',
-      'Integrating AI logic effectively',
-    ],
-    learnings: [
-      'Hackathon teamwork and pressure management',
-      'Building practical AI solutions',
-    ],
-    demo: 'https://evolve-xi.vercel.app/',
-    image: '/projects/ai-study.png', // Using existing image path
-    featured: true,
-    category: 'Full-Stack',
-    year: '2025',
-  },
+
 ]
 
 export const timeline = [
