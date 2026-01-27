@@ -1,7 +1,7 @@
 'use client'
 
 import { useEffect, useRef } from 'react'
-import { ArrowUpRight, Github, MapPin, Code2, GraduationCap, Sparkles, Star } from 'lucide-react'
+import { ArrowUpRight, Github, Code2, GraduationCap, Sparkles, Star } from 'lucide-react'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 
@@ -106,14 +106,18 @@ export function BentoGrid() {
                     </div>
                 </div>
 
-                {/* Location */}
-                <div className="bg-gradient-to-br from-neutral-50 to-white border border-neutral-100 rounded-3xl p-6 flex flex-col justify-between min-h-[130px] card-hover">
-                    <div className="w-9 h-9 rounded-xl bg-white shadow-sm border border-neutral-100 flex items-center justify-center">
-                        <MapPin className="w-4 h-4 text-neutral-500" />
+                {/* Certifications Card */}
+                <div className="bg-gradient-to-br from-neutral-50 to-white border border-neutral-100 rounded-3xl p-6 flex flex-col justify-between min-h-[130px] card-hover group/cert">
+                    <div className="flex justify-between items-start">
+                        <div className="w-9 h-9 rounded-xl bg-white shadow-sm border border-neutral-100 flex items-center justify-center group-hover/cert:bg-blue-600 transition-colors duration-300">
+                            {/* Use star or award icon */}
+                            <Star className="w-4 h-4 text-neutral-500 group-hover/cert:text-white transition-colors duration-300" />
+                        </div>
+                        <span className="text-[10px] font-mono text-neutral-400 opacity-0 group-hover/cert:opacity-100 transition-opacity">VERIFIED</span>
                     </div>
                     <div>
-                        <p className="text-[11px] text-neutral-400 uppercase tracking-wider font-medium">Based in</p>
-                        <p className="text-base font-semibold text-neutral-900 mt-0.5">India 🇮🇳</p>
+                        <p className="text-[11px] text-neutral-400 uppercase tracking-wider font-medium">Certifications</p>
+                        <p className="text-sm font-semibold text-neutral-900 mt-1 leading-tight">Google UX Design<br /><span className="text-neutral-400 font-normal">& More...</span></p>
                     </div>
                 </div>
 
@@ -128,7 +132,7 @@ export function BentoGrid() {
                     </div>
                     <div>
                         <p className="text-[11px] text-neutral-500 uppercase tracking-wider font-medium">Open for</p>
-                        <p className="text-base font-semibold text-neutral-900 mt-0.5">Internships & Projects</p>
+                        <p className="text-base font-semibold text-neutral-900 mt-0.5">Freelance & Projects</p>
                     </div>
                 </div>
 

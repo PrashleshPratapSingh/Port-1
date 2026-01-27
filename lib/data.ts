@@ -169,6 +169,30 @@ export const timeline = [
   },
 ]
 
+export const certifications = [
+  {
+    name: "Foundations of User Experience (UX) Design",
+    issuer: "Google",
+    year: "2025",
+    link: "https://coursera.org", // Placeholder
+    icon: "google"
+  },
+  {
+    name: "Full Stack Web Development",
+    issuer: "Woxsen University",
+    year: "2024",
+    link: "#",
+    icon: "code"
+  },
+  {
+    name: "More Loading...",
+    issuer: "Self-Paced",
+    year: "2026",
+    link: "#",
+    icon: "more"
+  }
+]
+
 export const socials = {
   github: 'https://github.com/vengeanceprashlesh',
   linkedin: 'https://linkedin.com/in/prashlesh',

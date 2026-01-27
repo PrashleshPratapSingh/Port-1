@@ -63,10 +63,9 @@ export function ProfileSection() {
                 </div>
                 <div ref={contentRef} className="md:w-2/3 grid grid-cols-1 md:grid-cols-2 gap-10 md:text-lg leading-relaxed text-base text-neutral-600 w-full">
                     <p>
-                        I'm a <span className="text-neutral-900 font-medium">Frontend Developer</span> passionate about
-                        creating intuitive interfaces and seamless user experiences. I love working with
-                        <span className="text-neutral-900 font-medium"> React, Next.js, and TypeScript</span> to
-                        build modern web applications.
+                        I'm a <span className="text-neutral-900 font-medium">Software Engineer & Freelancer</span> passionate about
+                        exploring every domain of technology. I don't limit myself to one stack; I build
+                        <span className="text-neutral-900 font-medium"> complete, scalable solutions</span> using whatever tools are best for the job.
                     </p>
                     <div className="flex flex-col gap-6">
                         <p>
