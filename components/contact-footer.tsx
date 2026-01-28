@@ -75,25 +75,15 @@ export function ContactFooter() {
                     </div>
 
                     <button
-                        onClick={handleCopyEmail}
+                        onClick={handleWhatsApp}
                         className="group relative w-32 h-32 md:w-40 md:h-40 rounded-full border border-neutral-700 flex items-center justify-center hover:bg-[#fcfbf9] hover:text-neutral-950 transition-all duration-500 cursor-pointer"
                     >
-                        {copied ? (
-                            <>
-                                <span className="text-sm font-medium uppercase tracking-widest group-hover:scale-110 transition-transform flex items-center gap-2">
-                                    <Check className="w-4 h-4" /> Copied
-                                </span>
-                            </>
-                        ) : (
-                            <>
-                                <span className="text-sm font-medium uppercase tracking-widest group-hover:scale-110 transition-transform">
-                                    Say Hi
-                                </span>
-                                <ArrowUpRight
-                                    className="w-6 h-6 absolute top-6 right-6 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-                                />
-                            </>
-                        )}
+                        <span className="text-sm font-medium uppercase tracking-widest group-hover:scale-110 transition-transform">
+                            Say Hi
+                        </span>
+                        <ArrowUpRight
+                            className="w-6 h-6 absolute top-6 right-6 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                        />
                     </button>
                 </div>
 
