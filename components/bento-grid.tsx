@@ -42,7 +42,7 @@ export function BentoGrid() {
     }, [])
 
     return (
-        <section ref={sectionRef} className="py-16 md:py-24 px-6 md:px-12 max-w-7xl mx-auto">
+        <section ref={sectionRef} className="pb-16 pt-12 md:pb-24 md:pt-16 px-6 md:px-12 max-w-7xl mx-auto">
             <div ref={cardsRef} className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-5">
                 {/* GitHub Card - Featured */}
                 <a

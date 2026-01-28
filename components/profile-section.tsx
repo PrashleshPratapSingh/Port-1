@@ -51,7 +51,7 @@ export function ProfileSection() {
     }, [])
 
     return (
-        <section ref={sectionRef} className="md:py-32 md:px-12 max-w-7xl mr-auto ml-auto pt-24 pr-6 pb-24 pl-6" id="me">
+        <section ref={sectionRef} className="md:pt-32 md:pb-0 md:px-12 max-w-7xl mr-auto ml-auto pt-24 pr-6 pb-0 pl-6" id="me">
             <div className="flex flex-col md:flex-row gap-12 md:gap-16 items-start">
                 <div ref={headingRef} className="w-full md:w-1/3">
                     <span className="text-xs font-semibold tracking-widest text-neutral-400 uppercase">

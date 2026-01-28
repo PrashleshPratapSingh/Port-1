@@ -123,12 +123,12 @@ export const projects: Project[] = [
   },
   {
     id: 'herbx-blockchain',
-    title: 'HerbX - Blockchain Supply Chain',
+    title: 'HerbX - Blockchain Supply Chain (WIP)',
     tagline: 'Transparent supply chain for Ayurvedic herbs',
     description: 'Ethereum-based dApp ensuring transparency and immutability in the Ayurvedic supply chain, enabling product verification via QR code.',
     longDescription: 'Developing an Ethereum-based decentralized application (dApp) to create a transparent and immutable supply chain for Ayurvedic herbs. Leveraged smart contracts for tamper-proof record-keeping, allowing consumers to verify product origin and authenticity instantly via a QR code scan.',
     metrics: [
-      { label: 'Status', value: 'In Progress' },
+      { label: 'Status', value: 'Work in Progress' },
       { label: 'Network', value: 'Sepolia' },
       { label: 'Security', value: 'Immutable' },
     ],
@@ -147,11 +147,14 @@ export const projects: Project[] = [
       'Blockchain application architecture',
       'Supply chain transparency solutions',
     ],
-    github: 'https://github.com/PrashleshPratapSingh/HerbX', // Assuming same repo
-    image: '/projects/herbx.png',
+    github: 'https://github.com/PrashleshPratapSingh/HerbX',
+    demo: 'https://herb-x.vercel.app/',
+    image: '/Screenshot 2026-01-27 203629.png',
     featured: true,
     category: 'Blockchain',
     year: '2025',
+    imageAlignment: 'object-center',
+    objectFit: 'object-contain',
   },
 
 ]

@@ -30,7 +30,7 @@ export function PortfolioCarousel() {
                 scrollTrigger: {
                     trigger: section,
                     start: 'top top',
-                    end: () => `+=${track.scrollWidth - window.innerWidth}`,
+                    end: () => `+=${Math.abs(getScrollAmount())}`,
                     pin: true,
                     scrub: 1,
                     invalidateOnRefresh: true,
@@ -73,7 +73,7 @@ export function PortfolioCarousel() {
             </div>
 
             {/* Carousel Track */}
-            <div ref={trackRef} className="flex h-full items-center pl-[5vw] pr-[5vw] gap-[5vw] md:pl-[20vw] md:pr-[20vw] md:gap-[10vw]">
+            <div ref={trackRef} className="flex h-full items-center pl-[5vw] pr-[8vw] gap-[5vw] md:pl-[20vw] md:pr-[15vw] md:gap-[10vw]">
 
                 {projects.map((project, index) => (
                     <div
@@ -140,6 +140,9 @@ export function PortfolioCarousel() {
                         </div>
                     </div>
                 ))}
+
+                {/* End spacer - creates gap before footer */}
+                <div className="w-[20vw] md:w-[25vw] flex-shrink-0" aria-hidden="true" />
             </div>
 
         </section>
