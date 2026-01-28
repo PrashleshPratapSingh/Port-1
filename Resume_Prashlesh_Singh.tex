@@ -1,0 +1,222 @@
+%-------------------------
+% Resume in LaTeX
+% Author: Prashlesh Pratap Singh
+%------------------------
+
+\documentclass[letterpaper,11pt]{article}
+
+\usepackage{latexsym}
+\usepackage[empty]{fullpage}
+\usepackage{titlesec}
+\usepackage{marvosym}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{verbatim}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage{fancyhdr}
+\usepackage[english]{babel}
+\usepackage{tabularx}
+\usepackage{fontawesome5}
+\usepackage{multicol}
+\setlength{\multicolsep}{-3.0pt}
+\setlength{\columnsep}{-1pt}
+\input{glyphtounicode}
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyfoot{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+% Adjust margins
+\addtolength{\oddsidemargin}{-0.6in}
+\addtolength{\evensidemargin}{-0.5in}
+\addtolength{\textwidth}{1.19in}
+\addtolength{\topmargin}{-.7in}
+\addtolength{\textheight}{1.4in}
+
+\urlstyle{same}
+
+\raggedbottom
+\raggedright
+\setlength{\tabcolsep}{0in}
+
+% Sections formatting
+\titleformat{\section}{
+  \vspace{-4pt}\scshape\raggedright\large\bfseries
+}{}{0em}{}[\color{blue}\titlerule \vspace{-5pt}]
+
+% Ensure that generate pdf is machine readable/ATS parsable
+\pdfgentounicode=1
+
+%-------------------------
+% Custom commands
+\newcommand{\resumeItem}[1]{
+  \item\small{
+    {#1 \vspace{-2pt}}
+  }
+}
+
+\newcommand{\classesList}[4]{
+    \item\small{
+        {#1 #2 #3 #4 \vspace{-2pt}}
+  }
+}
+
+\newcommand{\resumeSubheading}[4]{
+  \vspace{-2pt}\item
+    \begin{tabular*}{1.0\textwidth}[t]{l@{\extracolsep{\fill}}r}
+      \textbf{#1} & \textbf{\small #2} \\
+      \textit{\small#3} & \textit{\small #4} \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeSubSubheading}[2]{
+    \item
+    \begin{tabular*}{1.0\textwidth}{l@{\extracolsep{\fill}}r}
+      \textit{\small#1} & \textit{\small #2} \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeProjectHeading}[2]{
+    \item
+    \begin{tabular*}{1.001\textwidth}{l@{\extracolsep{\fill}}r}
+      \small#1 & \textbf{\small #2}\\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeSubItem}[1]{\resumeItem{#1}\vspace{-4pt}}
+
+\renewcommand\labelitemi{$\vcenter{\hbox{\tiny$\bullet$}}$}
+\renewcommand\labelitemii{$\vcenter{\hbox{\tiny$\bullet$}}$}
+
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=0.0in, label={}]}
+\newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
+\newcommand{\resumeItemListStart}{\begin{itemize}}
+\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-5pt}}
+
+%-------------------------------------------
+%%%%%%  RESUME STARTS HERE  %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+%----------HEADING----------
+\begin{center}
+    {\Huge \scshape Prashlesh Pratap Singh} \\ \vspace{1pt}
+    \small \textbf{Computer Science Student} \\ \vspace{8pt}
+    \small 
+    \raisebox{-0.1\height}\faPhone\ +91-9918190536 ~ $|$ ~ 
+    \href{mailto:iamprashlesh@gmail.com}{\raisebox{-0.2\height}\faEnvelope\ iamprashlesh@gmail.com} ~ $|$ ~ 
+    \href{https://linkedin.com/in/prashlesh}{\raisebox{-0.2\height}\faLinkedin\ linkedin.com/in/prashlesh} ~ $|$ ~
+    \href{https://github.com/PrashleshPratapSingh}{\raisebox{-0.2\height}\faGithub\ github.com/PrashleshPratapSingh}
+    \vspace{-8pt}
+\end{center}
+
+%-----------SKILLS-----------
+\section{Skills}
+ \begin{itemize}[leftmargin=0.15in, label={}]
+    \small{\item{
+     \textbf{Languages:}{ C++, Python, JavaScript, TypeScript, Java} \\
+     \textbf{Frontend:}{ React.js, Next.js 15, HTML5, CSS3, Tailwind CSS, Framer Motion} \\
+     \textbf{Backend:}{ Node.js, Express.js, MongoDB, Convex, PostgreSQL} \\
+     \textbf{Blockchain:}{ Solidity, Ethereum (Sepolia), Wagmi, Smart Contracts} \\
+     \textbf{AI/ML:}{ Gemini 2.5, Llama 3.3, Groq, OpenAI APIs} \\
+     \textbf{Tools \& Design:}{ Git, GitHub, Figma, Vercel, Clerk, UI/UX Design (Google Certified)} \\
+    }}
+ \end{itemize}
+ \vspace{-16pt}
+
+%-----------EDUCATION-----------
+\section{Education}
+  \resumeSubHeadingListStart
+    \resumeSubheading
+      {Woxsen University}{2024 -- 2028}
+      {Bachelor of Computer Science - School of Technology}{CGPA: 7.8/10}
+    \resumeSubheading
+      {Sunbeam School Varuna}{2022 -- 2024}
+      {Intermediate (XII)}{GPA: 7.6/10}
+  \resumeSubHeadingListEnd
+
+%-----------EXPERIENCE-----------
+\section{Experience}
+  \resumeSubHeadingListStart
+    \resumeSubheading
+      {Freelance Full-Stack Developer}{2024 -- Present}
+      {}{}
+      \resumeItemListStart
+        \resumeItem{Built production-ready e-commerce and raffle platforms for clients, handling payment integrations, secure authentication, and high-traffic performance optimization using Next.js, React, and PostgreSQL}
+      \resumeItemListEnd
+  \resumeSubHeadingListEnd
+\vspace{-16pt}
+
+%-----------PROJECTS-----------
+\section{Academic Projects}
+    \resumeSubHeadingListStart
+    
+      \resumeProjectHeading
+          {\textbf{EmpathAI - AI Mental Health Companion} $|$ \emph{Next.js 15, Gemini 2.5, Llama 3.3, Groq, Convex, Clerk}}{2026}
+          \resumeItemListStart
+            \resumeItem{Voice-first AI mental health assistant with \textbf{<500ms response latency}, providing 24/7 support using multi-model AI pipeline}
+            \resumeItem{Architected 3-layer system: Frontend (Next.js/Framer), Intelligence Layer (Gemini + Llama + Groq), and secure Data Layer with \textbf{E2E encryption}}
+            \resumeItem{Features real-time emotion analysis, crisis detection, and persistent conversation memory for personalized therapeutic interactions}
+            \resumeItem{\href{https://empath-ai-omega.vercel.app/}{\underline{Live Demo}} | \href{https://github.com/PrashleshPratapSingh}{\underline{GitHub}}}
+          \resumeItemListEnd
+          \vspace{-13pt}
+          
+      \resumeProjectHeading
+          {\textbf{Most Valuable - E-commerce Raffle Platform} $|$ \emph{Next.js, TypeScript, Tailwind CSS, PostgreSQL}}{2024}
+          \resumeItemListStart
+            \resumeItem{High-performance raffle platform with secure entry system, real-time participation tracking, and transparent winner selection}
+            \resumeItem{Optimized for high-concurrency traffic spikes during product drops. Integrated payment gateway and anti-fraud mechanisms}
+            \resumeItem{\href{https://most-valuable.vercel.app/}{\underline{Live Demo}} | \href{https://github.com/PrashleshPratapSingh/most-valuable}{\underline{GitHub}}}
+          \resumeItemListEnd 
+          \vspace{-13pt}
+          
+      \resumeProjectHeading
+          {\textbf{HerbX - Blockchain Supply Chain System} $|$ \emph{Solidity, Next.js, Ethereum (Sepolia), Wagmi}}{2025}
+          \resumeItemListStart
+            \resumeItem{Ethereum-based dApp for Ayurvedic herb supply chain transparency with \textbf{15+ Solidity smart contracts} on Sepolia testnet}
+            \resumeItem{Enables immutable record-keeping and QR-based product verification, reducing counterfeit risk through blockchain-backed authenticity}
+            \resumeItem{\href{https://herb-x.vercel.app/}{\underline{Live Demo}} | \href{https://github.com/PrashleshPratapSingh/HerbX}{\underline{GitHub}}}
+          \resumeItemListEnd 
+          \vspace{-13pt}
+          
+    \resumeSubHeadingListEnd
+\vspace{-15pt}
+
+%-----------INVOLVEMENT---------------
+\section{Position of Responsibility}
+    \resumeSubHeadingListStart
+        \resumeProjectHeading
+            {\textbf{Smart India Hackathon 2025} $|$ \emph{National-Level Competition}}{2025}
+            \resumeItemListStart
+                \resumeItem{Built AI-powered study assistant in \textbf{36-hour hackathon} solving real-world education challenges}
+                \resumeItem{Implemented personalized learning paths with spaced repetition algorithm and adaptive content delivery for 300+ student testers}
+                \resumeItem{\textbf{Tech Stack:} React, Python, TensorFlow, MongoDB}
+            \resumeItemListEnd
+        \resumeProjectHeading
+            {\textbf{Kaggle Agentic AI Hackathon}}{2026}
+            \resumeItemListStart
+                \resumeItem{Participated in Kaggle's Agentic AI competition, building autonomous AI agents with advanced reasoning capabilities}
+            \resumeItemListEnd
+        \resumeProjectHeading
+            {\textbf{Google Hackathon}}{2026}
+            \resumeItemListStart
+                \resumeItem{Competed in Google's hackathon focused on innovative technology solutions}
+            \resumeItemListEnd
+    \resumeSubHeadingListEnd
+\vspace{-15pt}
+
+%-----------ACHIEVEMENTS-----------
+\section{Achievements / Certifications}
+ \begin{itemize}[leftmargin=0.15in, label={}]
+    \small{\item{
+     \textbf{Google UX Design Certified} - Foundations of User Experience Design (2025) \\
+     Deployed \textbf{5+ production applications} with 99.9\% uptime on Vercel \\
+     \textbf{17+ GitHub repositories} with active open-source contributions \\
+     Specialized in Full-Stack Web Development with focus on scalable architecture \\
+    }}
+ \end{itemize}
+ \vspace{-16pt}
+
+\end{document}
